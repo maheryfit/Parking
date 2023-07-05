@@ -5,6 +5,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import mg.model.Prestation;
 import mg.model.Service;
 import mg.model.VehicleType;
@@ -24,14 +25,17 @@ public class PrestationServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String action = request.getParameter("action");
-        System.out.println(action);
+        HttpSession session = request.getSession();
+        if (session.getAttribute("idCustomer") == null) {
+            response.sendRedirect("login");
+        }
         if (action.equalsIgnoreCase("insert")) {
             String date = request.getParameter("date");
             double duree = Double.parseDouble(request.getParameter("duree"));
             String idService = request.getParameter("service");
             String vehicleType = request.getParameter("vehicleType");
             String matricule = request.getParameter("matricule");
-            String idCustomer = "Customer000001";
+            String idCustomer = (String) session.getAttribute("idCustomer");
             String idPlace = "Place000001";
             try {
                 Prestation prestation = new Prestation(idCustomer, idService, date, duree, idPlace, matricule,

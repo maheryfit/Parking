@@ -34,15 +34,23 @@
 							<div class="row">
 								<div class="col-md-9">
 									<div class="form-group">
-										<span class="form-label d-flex flex-column">Choix de véhicule</span>
+										<span class="form-label d-flex flex-wrap flex-column">Choix de véhicule</span>
 											<% for (VehicleType vehicleType : list) { %>
+												<div>
 													<input type="radio" name="vehicleType" id="<%out.print(vehicleType.getIdvehicletype());%>" value="<%out.print(vehicleType.getIdvehicletype());%>" required>
 													<label for="<%out.print(vehicleType.getIdvehicletype());%>">
-													<% out.print(vehicleType.getNameVehicleType()); %>
-												</label >
+														<% out.print(vehicleType.getNameVehicleType()); %>
+													</label>
+												</div>
 												<% } %>
 												<input type="hidden" name="step" value="2">
-												
+												<div class="form-group mt-5">
+													<span class="form-label">Matricule</span>
+													<input class="form-control" type="text" name="matricule" required>
+												</div>
+												<div class="form-btn">
+													<button class="submit-btn btn btn-primary" type="submit">Valider</button>
+												</div>
 										</div>
 									</div>
 								</div>
@@ -54,17 +62,6 @@
 								</div> -->
 							</div>
 							
-							<div class="form-group">
-								<div class="form-group">
-									<span class="form-label">Matricule</span>
-									<input class="form-control" type="text" name="matricule" required>
-								</div>
-							</div>
-							
-						
-							<div class="form-btn">
-								<button class="submit-btn btn btn-primary" type="submit">Valider</button>
-							</div>
 						</form>
 					</div>
 				</div>

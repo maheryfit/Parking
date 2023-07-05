@@ -36,8 +36,8 @@ public class LoginServlet extends HttpServlet {
             Customer customer = new Customer();
             String idcustomer = customer.signIn(email, password);
             HttpSession session = request.getSession();
-            session.setAttribute("idcustomer", idcustomer);
-            response.sendRedirect("/home");
+            session.setAttribute("idCustomer", idcustomer);
+            response.sendRedirect("index.jsp");
         } catch (Exception e) {
             e.printStackTrace();
             request.setAttribute("url", url);

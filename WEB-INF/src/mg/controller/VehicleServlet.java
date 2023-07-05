@@ -5,6 +5,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import mg.model.VehicleType;
 import mg.model.Service;
 
@@ -23,6 +24,10 @@ public class VehicleServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String step = request.getParameter("step");
+        HttpSession session = request.getSession();
+        if (session.getAttribute("idCustomer") == null) {
+            response.sendRedirect("login");
+        }
         if (step.equalsIgnoreCase("1")) {
 
             try {

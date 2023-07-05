@@ -3,7 +3,8 @@
 <%@page import="java.util.List" %>
 <%
     String url = (String) request.getAttribute("url");
-    List<Prestation> prestations =  (List<Prestation>) request.getAttribute("prestation");
+    String nomUtilisateur = (String) request.getAttribute("nomUtilisateur");
+    List<EmployeeResigns> employeeResigns =  (List<EmployeeResigns>) request.getAttribute("employeeResigns");
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -185,15 +186,12 @@
       </header>
       <!-- END HEADER MOBILE -->
 
-      <!-- PAGE CONTENT-->
-
-
         <!-- WELCOME-->
         <section class="welcome p-t-10">
           <div class="container">
             <div class="row">
               <div class="col-md-12" style="padding-top: 20px">
-                <h1 class="title-4">Prestation</h1>
+                <h1 class="title-4">Employés</h1>
                 <hr class="line-seprate" />
               </div>
             </div>
@@ -207,7 +205,7 @@
           <div class="container">
             <div class="row">
               <div class="col-md-12">
-                <h3 class="title-5 m-b-35">Historique des prestations</h3>
+                <h3 class="title-5 m-b-35">Historique de renvoi des employées</h3>
               </div>
             </div>
             <div class="row"></div>
@@ -223,40 +221,25 @@
             >
               <thead>
                 <tr>
-                  <th>Clients</th>
-                  <th>Matricule</th>
-                  <th>Service</th>
-                  <th>Date début</th>
-                  <th>Date fin</th>
-                  <th>Durée</th>
-                  <th>Place</th>
-                  <th>Montant</th>
-
+                  <th>Nom</th>
+                  <th>Prénom</th>
+                  <th>Numéro de téléphone</th>
+                  <th>Email</th>
+                  <th>Travail</th>
+                  <th>Date de renvoi</th>
                 </tr>
               </thead>
               <tbody>
-              <% for(Prestation prestation: prestations) {
-                try {
-                  Customer customer = new Customer().selectById(prestation.getIdCustomer());
-                  Service service = new Service().selectById(prestation.getIdService());
-                  Place place = new Place().selectById(prestation.getIdPlace());
-                  VehicleType vehicleType = new VehicleType().selectById(prestation.getIdTypeVehicle());
-                %>
+              <% for(EmployeeResigns employeeResign : employeeResigns){ %>
                 <tr>
-                  <td><%=customer.getName() + " " + customer.getSurname() %></td>
-                  <td><%=prestation.getMatricule()%></td>
-                  <td><%=service.getNameService()%></td>
-                  <td><%=prestation.getDateStart()%></td>
-                  <td><%=prestation.getDateEnd()%></td>
-                  <td><%=prestation.getDuration()%></td>
-                  <td><%=place.getNamePlace()%></td>
-                  <td><%=prestation.getAmount()%></td>
+                  <td><%=employeeResign.getEmployee().getName()%></td>
+                  <td><%=employeeResign.getEmployee().getSurname()%></td>
+                  <td><%=employeeResign.getEmployee().getPhoneNumber()%></td>
+                  <td><%=employeeResign.getEmployee().getEmail()%></td>
+                  <td><%=employeeResign.getEmployee().getJob().getNameJob()%></td>
+                  <td><%=employeeResign.getResignDate()%></td>
                 </tr>
-                <% } catch(Exception e) {
-                  
-               }
-              }
-              %>
+              <%}%>
               </tbody>
             </table>
           </div>
