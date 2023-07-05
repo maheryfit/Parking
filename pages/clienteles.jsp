@@ -188,6 +188,7 @@
                           <th>Email</th>
                           <th>Job</th>
                           <th>Salaire</th>
+                          <th></th>
                         </tr>
                       </thead>
                       <tbody>
@@ -199,6 +200,7 @@
                             <td><% out.print(c.getBirthday()); %></td>
                             <td><% out.print(c.getRegistrationDate()); %></td>
                             <td class="text-right"><% out.print(c.getPhoneNumber()); %></td>
+                            <td><a class="btn btn-primary" href="customer-loyal?idCustomer=<%=c.getIdCustomer()%>">Rendre fidèle</a></td>
                           </tr>
                         <% } %>
                       </tbody>

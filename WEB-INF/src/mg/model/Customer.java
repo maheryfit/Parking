@@ -288,4 +288,13 @@ public class Customer extends JDBC {
       }
       return customerLoyal;
    }
+
+   public LinkedList<Customer> getCustomerNotLoyal() throws Exception {
+      LinkedList<Customer> customer = new LinkedList<Customer>();
+      LinkedList<Object> customerLinkedList = this.select("WHERE loyalty = 0");
+      for (Object object : customerLinkedList) {
+         customer.add((Customer) object);
+      }
+      return customer;
+   }
 }

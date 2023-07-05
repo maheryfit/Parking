@@ -23,7 +23,7 @@ public class CustomerAdminServlet extends HttpServlet {
 
       try {
 
-         List<Customer> customer = new Customer().select();
+         List<Customer> customer = new Customer().getCustomerNotLoyal();
          request.setAttribute("customerlist", customer);
          List<Customer> customerLoyal = new Customer().getCustomerLoyal();
          request.setAttribute("customerLoyal", customerLoyal);
