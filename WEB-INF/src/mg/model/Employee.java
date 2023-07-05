@@ -10,7 +10,7 @@ import mg.annotation.Setter;
 import mg.annotation.TableName;
 import mg.table.JDBC;
 
-@TableName(name = "Employee", database = "parking", user = "postgres", password = "pgmhr2003", driver = "postgres")
+@TableName(name = "Employee", database = "parking", user = "postgres", password = "28oct2003", driver = "postgres")
 public class Employee extends JDBC {
    @ColumnField(columnName = "idEmployee", primaryKey = true)
    private String idEmployee;
