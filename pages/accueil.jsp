@@ -106,6 +106,14 @@
                             <a href="customer-admin">
                                 <i class="fas fa-users"></i>Clients</a>
                         </li>
+                        <li>
+                            <a href="prestation-admin">
+                                <i class="fas fa-home"></i>Prestation</a>
+                          </li>
+                          <li>
+                            <a href="demission-admin">
+                                <i class="fas fa-home"></i>Démission</a>
+                          </li>
                        
                     </ul>
                 </nav>

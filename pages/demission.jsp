@@ -4,7 +4,7 @@
 <%
     String url = (String) request.getAttribute("url");
     String nomUtilisateur = (String) request.getAttribute("nomUtilisateur");
-    List<EmployeeSalary> jobSalaries =  (List<EmployeeSalary>) request.getAttribute("jobSalaries");
+    List<EmployeeResigns> employeeResigns =  (List<EmployeeResigns>) request.getAttribute("employeeResigns");
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -164,14 +164,6 @@
               <li>
                 <a href="customer-admin"> <i class="fas fa-user"></i>Clientèles</a>
               </li>
-              <li>
-                <a href="prestation-admin">
-                    <i class="fas fa-home"></i>Prestation</a>
-              </li>
-              <li>
-                <a href="demission-admin">
-                    <i class="fas fa-home"></i>Démission</a>
-              </li>
             </ul>
           </div>
         </nav>
@@ -255,20 +247,18 @@
                   <th>Numéro de téléphone</th>
                   <th>Email</th>
                   <th>Travail</th>
-                  <th>Salaire</th>
-                  <th></th>
+                  <th>Date de renvoi</th>
                 </tr>
               </thead>
               <tbody>
-              <% for(int i=0; i<jobSalaries.size(); i++){%>
+              <% for(EmployeeResigns employeeResign: employeeResigns){%>
                 <tr>
-                  <td><%=jobSalaries.get(i).getActiveEmployee().getName()%></td>
-                  <td><%=jobSalaries.get(i).getActiveEmployee().getSurname()%></td>
-                  <td><%=jobSalaries.get(i).getActiveEmployee().getPhoneNumber()%></td>
-                  <td><%=jobSalaries.get(i).getActiveEmployee().getEmail()%></td>
-                  <td><%=jobSalaries.get(i).getActiveEmployee().getJob().getNameJob()%></td>
-                  <td><%=jobSalaries.get(i).getSalary()%></td>
-                  <td><a href="demission-action-admin?id=<%=jobSalaries.get(i).getActiveEmployee().getIdEmployee()%>" type="submit" class="btn btn-danger">Renvoyer</a></td>
+                  <td><%=employeeResign.getEmployee().getName()%></td>
+                  <td><%=employeeResign.getEmployee().getSurname()%></td>
+                  <td><%=employeeResign.getEmployee().getPhoneNumber()%></td>
+                  <td><%=employeeResign.getEmployee().getEmail()%></td>
+                  <td><%=employeeResign.getEmployee().getJob().getNameJob()%></td>
+                  <td><%=employeeResign.getResignDate()%></td>
                 </tr>
               <%}%>
               </tbody>
