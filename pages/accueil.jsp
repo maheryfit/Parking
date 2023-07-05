@@ -111,6 +111,10 @@
                                 <i class="fas fa-home"></i>Prestation</a>
                           </li>
                           <li>
+                            <a href="insert-page-admin">
+                                <i class="fas fa-home"></i>Insertion d'employé</a>
+                          </li>
+                          <li>
                             <a href="demission-admin">
                                 <i class="fas fa-home"></i>Démission</a>
                           </li>

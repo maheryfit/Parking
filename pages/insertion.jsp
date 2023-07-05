@@ -78,220 +78,119 @@
 
   <body class="animsition">
     <div class="page-wrapper">
-      <!-- HEADER MOBILE-->
       <header class="header-mobile d-block d-lg-none">
         <div class="header-mobile__bar">
-          <div class="container-fluid">
-            <div class="header-mobile-inner">
-              <a class="logo" href="index.html">
-                <img src="<%= url %>/assets/img/icon/logoa.png" alt="CoolAdmin" />
-              </a>
-              <button class="hamburger hamburger--slider" type="button">
-                <span class="hamburger-box">
-                  <span class="hamburger-inner"></span>
-                </span>
-              </button>
+            <div class="container-fluid">
+                <div class="header-mobile-inner">
+                    <a class="logo" href="home-admin">
+                        <img src="<%=url%>/assets/img/icon/logoa.png" alt="CoolAdmin" />
+                    </a>
+                    <button class="hamburger hamburger--slider" type="button">
+                        <span class="hamburger-box">
+                            <span class="hamburger-inner"></span>
+                        </span>
+                    </button>
+                </div>
             </div>
-          </div>
         </div>
         <nav class="navbar-mobile">
-          <div class="container-fluid">
-            <ul class="navbar-mobile__list list-unstyled">
-              <li class="has-sub">
-                <a class="js-arrow" href="#">
-                  <i class="fas fa-chart-bar"></i>Financier</a
-                >
-                <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
-                  <li>
-                   <a href="acceuil.html">Recettes</a>
-                  </li>
-                  <li>
-                    <a href="index2.html">Dépenses</a>
-                  </li>
+            <div class="container-fluid">
+                <ul class="navbar-mobile__list list-unstyled">
+                    <li>
+                        <a href="home-admin">
+                            <i class="fas fa-users"></i>Service</a>
+                    </li>
+                    <li>
+                        <a href="employee-admin">
+                            <i class="fas fa-users"></i>Employés</a>
+                    </li>
+                    <li>
+                        <a href="customer-admin">
+                            <i class="fas fa-users"></i>Clients</a>
+                    </li>
+ 
                 </ul>
-              </li>
-              <li>
-                            <a href="chart.html">
-                                <i class="fas fa-check-square"></i>Services</a>
-                        </li>
-                        <li>
-                            <a href="index3.html">
-                                <i class="fas fa-users"></i>Employés</a>
-                        </li>
-                        <li>
-                            <a href="salaire.html">
-                                <i class="fas fa-users"></i>Salaires</a>
-                        </li>
-                        <li>
-                            <a href="table.html">
-                                <i class="fas fa-user"></i>Clienteles</a>
-                        </li>
-                        <li>
-                            <a href="frequentation.html">
-                                <i class="fas fa-map-marker-alt"></i>Frequentation</a>
-                        </li>                
-                        
-                        <li>
-                            <a href="demission.html">
-                                <i class="fas fa-calendar-alt"></i>Demission</a>
-                        </li>
-            </ul>
-          </div>
+            </div>
         </nav>
-      </header>
-      <!-- END HEADER MOBILE-->
+    </header>
+    <!-- END HEADER MOBILE-->
 
-      <!-- MENU SIDEBAR-->
-      <aside class="menu-sidebar d-none d-lg-block">
+    <!-- MENU SIDEBAR-->
+    <aside class="menu-sidebar d-none d-lg-block">
         <div class="logo">
-          <a href="#">
-            <img src="<%= url %>/assets/img/icon/logoa.png" alt="Cool Admin" />
-          </a>
+            <a href="home-admin">
+                <img src="<%=url%>/assets/img/icon/logoa.png" alt="Cool Admin" />
+            </a>
         </div>
         <div class="menu-sidebar__content js-scrollbar1">
-          <nav class="navbar-sidebar">
-            <ul class="list-unstyled navbar__list">
-              <li class="has-sub">
-                <a class="js-arrow" href="#">
-                  <i class="fas fa-chart-bar"></i>Financier</a
-                >
-                <ul class="list-unstyled navbar__sub-list js-sub-list">
-                  <li>
-                    <a href="acceuil.html">Recettes</a>
-                  </li>
-                  <li>
-                     <a href="index2.html">Dépenses</a>
-                  </li>
+            <nav class="navbar-sidebar">
+                <ul class="list-unstyled navbar__list">
+                    <li>
+                        <a href="home-admin">
+                            <i class="fas fa-users"></i>Service</a>
+                    </li>
+                    <li>
+                        <a href="employee-admin">
+                            <i class="fas fa-users"></i>Employés</a>
+                    </li>
+                    <li>
+                        <a href="customer-admin">
+                            <i class="fas fa-users"></i>Clients</a>
+                    </li>
+                    <li>
+                        <a href="prestation-admin">
+                            <i class="fas fa-home"></i>Prestation</a>
+                      </li>
+                      <li>
+                        <a href="insert-page-admin">
+                            <i class="fas fa-home"></i>Insertion d'employé</a>
+                      </li>
+                      <li>
+                        <a href="demission-admin">
+                            <i class="fas fa-home"></i>Démission</a>
+                      </li>
+                   
                 </ul>
-              </li>
-                <li>
-                            <a href="chart.html">
-                                <i class="fas fa-check-square"></i>Services</a>
-                        </li>
-                        <li>
-                            <a href="index3.html">
-                                <i class="fas fa-users"></i>Employés</a>
-                        </li>
-                        <li>
-                            <a href="salaire.html">
-                                <i class="fas fa-users"></i>Salaires</a>
-                        </li>
-                        <li>
-                            <a href="table.html">
-                                <i class="fas fa-user"></i>Clienteles</a>
-                        </li>
-                        <li>
-                            <a href="frequentation.html">
-                                <i class="fas fa-map-marker-alt"></i>Frequentation</a>
-                        </li>                
-                        
-                        <li>
-                            <a href="demission.html">
-                                <i class="fas fa-calendar-alt"></i>Demission</a>
-                        </li>
-            </ul>
-          </nav>
+            </nav>
         </div>
-      </aside>
-      <!-- END MENU SIDEBAR-->
+    </aside>
+    <!-- END MENU SIDEBAR-->
 
-      <!-- PAGE CONTAINER-->
-      <div class="page-container">
+    <!-- PAGE CONTAINER-->
+    <div class="page-container">
         <!-- HEADER DESKTOP-->
         <header class="header-desktop">
-          <div class="section__content section__content--p30">
-            <div class="container-fluid">
-              <div class="header-wrap">
-                <form class="form-header" action="" method="POST">
-                  <!-- <input
-                    class="au-input au-input--xl"
-                    type="text"
-                    name="search"
-                    placeholder="Recherche de données &amp; rapports..."
-                  />
-                  <button class="au-btn--submit" type="submit">
-                    <i class="zmdi zmdi-search"></i>
-                  </button> -->
-                </form>
-                <div class="header-button">
-                  <div class="noti-wrap">
-                <div class="noti__item js-item-menu">
-                                        <i class="zmdi zmdi-notifications"></i>
-                                        <span class="quantity">3</span>
-                                        <div class="notifi-dropdown js-dropdown">
-                                            <div class="notifi__title">
-                                                <p>Vous avez 3 Notifications</p>
-                                            </div>
-                                            <div class="notifi__item">
-                                                <div class="bg-c1 img-cir img-40">
-                                                    <i class="zmdi zmdi-email-open"></i>
-                                                </div>
-                                                <div class="content">
-                                                    <p>Une notification dans votre email</p>
-                                                    <span class="date">Juin 12, 2018 06:50</span>
-                                                </div>
-                                            </div>
-                                            <div class="notifi__item">
-                                                <div class="bg-c2 img-cir img-40">
-                                                    <i class="zmdi zmdi-account-box"></i>
-                                                </div>
-                                                <div class="content">
-                                                    <p>Un client s'apprête à faire une réservation</p>
-                                                    <span class="date">April 12, 2018 06:50</span>
-                                                </div>
-                                            </div>
-                                            <div class="notifi__item">
-                                                <div class="bg-c3 img-cir img-40">
-                                                    <i class="zmdi zmdi-file-text"></i>
-                                                </div>
-                                                <div class="content">
-                                                    <p>Vous avez été évalué</p>
-                                                    <span class="date">April 12, 2018 06:50</span>
-                                                </div>
-                                            </div>
-                                            <div class="notifi__footer">
-                                                <a href="#">Toutes les notifications</a>
-                                            </div>
-                                        </div>
+            <div class="section__content section__content--p30">
+                <div class="container-fluid">
+                    <div class="header-wrap">
+                        <div class="header-button">
+                            <div class="account-wrap">
+                                <div class="account-item clearfix js-item-menu">
+                                    <div class="content">
+                                        <a class="js-acc-btn" href="#">Administrateur</a>
                                     </div>
-                  </div>
-                 <div class="account-wrap">
-                                    <div class="account-item clearfix js-item-menu">
-                                        <div class="image">
-                                            <img src="<%= url %>/assets/img/icon/avatar-01.jpg" alt="nomena" />
-                                        </div>
-                                        <div class="content">
-                                            <a class="js-acc-btn" href="#">Nomena</a>
-                                        </div>
-                                        <div class="account-dropdown js-dropdown">
-                                            <div class="info clearfix">
-                                                <div class="image">
-                                                    <a href="#">
-                                                        <img src="<%= url %>/assets/img/icon/avatar-01.jpg" alt="nomena" />
-                                                    </a>
-                                                </div>
-                                                <div class="content">
-                                                    <h5 class="name">
-                                                        <a href="#">Nomena</a>
-                                                    </h5>
-                                                    <span class="email">nomena@example.com</span>
-                                                </div>
+                                    <div class="account-dropdown js-dropdown">
+                                        <div class="info clearfix">
+                                            <div class="content">
+                                                <h5 class="name">
+                                                    Administrateur
+                                                </h5>
                                             </div>
-                                           
-                                            <div class="account-dropdown__footer">
-                                                <a href="#">
-                                                    <i class="zmdi zmdi-power"></i>Deconnexion</a>
-                                            </div>
+                                        </div>
+                                       
+                                        <div class="account-dropdown__footer">
+                                            <a href="#">
+                                                <i class="zmdi zmdi-power"></i>Déconnexion</a>
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
         </header>
         <!-- HEADER DESKTOP-->
-
         <!-- MAIN CONTENT-->
         <div class="main-content">
           <div class="section__content section__content--p30">
@@ -305,15 +204,7 @@
                       <strong>Employés</strong>
                     </div>
                     <div class="card-body card-block">
-                      <form action="./insertemp" method="get" enctype="multipart/form-data" class="form-horizontal">
-                        <div class="row form-group">
-                          <div class="col col-md-3">
-                            <label class="form-control-label">Données</label>
-                          </div>
-                          <div class="col-12 col-md-9">
-                            <p class="form-control-static">Personne</p>
-                          </div>
-                        </div>
+                      <form action="./insertemp-admin" method="post" class="form-horizontal">
                         <div class="row form-group">
                           <div class="col col-md-3">
                             <label for="text-input" class="form-control-label"

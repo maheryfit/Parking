@@ -101,6 +101,10 @@
                     <i class="fas fa-home"></i>Prestation</a>
               </li>
               <li>
+                <a href="insert-page-admin">
+                    <i class="fas fa-home"></i>Insertion client</a>
+              </li>
+              <li>
                 <a href="demission-admin">
                     <i class="fas fa-home"></i>Démission</a>
               </li>
@@ -169,6 +173,10 @@
                     <i class="fas fa-home"></i>Prestation</a>
               </li>
               <li>
+                <a href="insert-page-admin">
+                    <i class="fas fa-home"></i>Insertion client</a>
+              </li>
+              <li>
                 <a href="demission-admin">
                     <i class="fas fa-home"></i>Démission</a>
               </li>
@@ -198,16 +206,6 @@
                       <li class="list-inline-item"></li>
                     </ul>
                   </div>
-                  <form class="au-form-icon--sm" action="" method="post">
-                    <input
-                      class="au-input--w300 au-input--style2"
-                      type="text"
-                      placeholder="Recherche de données &amp; rapports..."
-                    />
-                    <button class="au-btn--submit2" type="submit">
-                      <i class="zmdi zmdi-search"></i>
-                    </button>
-                  </form>
                 </div>
               </div>
             </div>
