@@ -55,7 +55,7 @@
                     if(session != null && session.getAttribute("idCustomer") != null) { 
                         Customer customer = new Customer().selectById((String)session.getAttribute("idCustomer"));
                       %>
-                      <a class="nav-link" href="profile.html"><span class="profile-bubble" data-initials="<%=customer.getName()%>"></span></a>
+                      <a class="nav-link bg-primary p-1" href="profile.html">Bienvenue <%=customer.getName()%></a>
                     <% } else { %>
                       <a class="nav-link p-1 bg-primary" href="login">Se connecter</a>
                     <% }
