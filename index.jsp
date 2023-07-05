@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@page import="mg.model.*" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,13 +36,13 @@
             <div class="d-flex ml-auto flex-column flex-lg-row align-items-center">
               <ul class="navbar-nav  ">
                 <li class="nav-item active">
-                  <a class="nav-link" href="/Parking">Acceuil <span class="sr-only">(current)</span></a>
+                  <a class="nav-link" href="/Parking">Accueil <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="/Parking/pages/Front-Office/front/about.html"> A propos</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="/Parking/Vehicle?step=1"> Reserver </a>
+                  <a class="nav-link" href="/Parking/Vehicle?step=1"> Réserver </a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="/Parking/pages/Front-Office/front/service.html"> Services </a>
@@ -50,8 +51,15 @@
                   <a class="nav-link" href="/Parking/pages/Front-Office/front/contact.html">Contact</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="profile.html"></a>
-                  <span class="profile-bubble" data-initials="N"></span>
+                  <%
+                    if(session != null && session.getAttribute("idCustomer") != null) { 
+                        Customer customer = new Customer().selectById((String)session.getAttribute("idCustomer"));
+                      %>
+                      <a class="nav-link" href="profile.html"><span class="profile-bubble" data-initials="<%=customer.getName()%>"></span></a>
+                    <% } else { %>
+                      <a class="nav-link p-1 bg-primary" href="login">Se connecter</a>
+                    <% }
+                  %>
                 </li>
               </ul>
               <!-- <form class="form-inline my-2 my-lg-0 ml-0 ml-lg-4 mb-3 mb-lg-0">
