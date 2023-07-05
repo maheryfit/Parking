@@ -3,8 +3,7 @@
 <%@page import="java.util.List" %>
 <%
     String url = (String) request.getAttribute("url");
-    String nomUtilisateur = (String) request.getAttribute("nomUtilisateur");
-    List<EmployeeSalary> jobSalaries =  (List<EmployeeSalary>) request.getAttribute("jobSalaries");
+    List<Prestation> prestations =  (List<Prestation>) request.getAttribute("prestation");
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -78,106 +77,6 @@
 
   <body class="animsition">
     <div class="page-wrapper">
-      <!-- HEADER DESKTOP-->
-      <header class="header-desktop3 d-none d-lg-block">
-        <div class="section__content section__content--p30">
-          <div class="header3-wrap">
-            <div class="header__navbar">
-              <ul class="list-unstyled">
-              <li>
-                  <a href="customer-admin">
-                      <i class="fas fa-handshake-o"></i>Clients</a>
-              </li>        
-              <li>
-                  <a href="employee-admin">
-                      <i class="fas fa-handshake-o"></i>Employés</a>
-              </li>
-              <li>
-                  <a href="home-admin">
-                      <i class="fas fa-home"></i>Services</a>
-              </li>
-              <li>
-                <a href="prestation-admin">
-                    <i class="fas fa-home"></i>Prestation</a>
-              </li>
-              <li>
-                <a href="demission-admin">
-                    <i class="fas fa-home"></i>Démission</a>
-              </li>
-             
-              </ul>
-            </div>
-              <div class="account-wrap">
-                <div
-                  class="account-item account-item--style2 clearfix js-item-menu"
-                >
-                  <div class="content">
-                    <a class="js-acc-btn" href="#">Administrateur</a>
-                  </div>
-                  <div class="account-dropdown js-dropdown">
-                    <div class="info clearfix">
-                      <div class="content">
-                        <h5 class="name">
-                          <a href="#">Administrateur</a>
-                        </h5>
-                      </div>
-                    </div>
-
-                    <div class="account-dropdown__footer">
-                      <a href="#">
-                        <i class="zmdi zmdi-power"></i>Déconnexion</a
-                      >
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </header>
-      <!-- END HEADER DESKTOP-->
-
-      <!-- HEADER MOBILE-->
-      <header class="header-mobile header-mobile-2 d-block d-lg-none">
-        <div class="header-mobile__bar">
-          <div class="container-fluid">
-            <div class="header-mobile-inner">
-              <a class="logo" href="index.html">
-                <img src="images/icon/logo-white.png" alt="IT-ADD Park'" />
-              </a>
-              <button class="hamburger hamburger--slider" type="button">
-                <span class="hamburger-box">
-                  <span class="hamburger-inner"></span>
-                </span>
-              </button>
-            </div>
-          </div>
-        </div>
-        <nav class="navbar-mobile">
-          <div class="container-fluid">
-            <ul class="navbar-mobile__list list-unstyled">
-              <li>
-                <a href="home-admin">
-                  <i class="fas fa-check-square"></i>Services</a
-                >
-              </li>
-              <li>
-                <a href="customer-admin"> <i class="fas fa-user"></i>Clientèles</a>
-              </li>
-              <li>
-                <a href="prestation-admin">
-                    <i class="fas fa-home"></i>Prestation</a>
-              </li>
-              <li>
-                <a href="demission-admin">
-                    <i class="fas fa-home"></i>Démission</a>
-              </li>
-            </ul>
-          </div>
-        </nav>
-      </header>
-      <!-- END HEADER MOBILE -->
-
       <!-- PAGE CONTENT-->
       <div class="page-content--bgf7">
         <!-- BREADCRUMB-->
@@ -220,7 +119,7 @@
           <div class="container">
             <div class="row">
               <div class="col-md-12" style="padding-top: 20px">
-                <h1 class="title-4">Employés</h1>
+                <h1 class="title-4">Prestation</h1>
                 <hr class="line-seprate" />
               </div>
             </div>
@@ -234,7 +133,7 @@
           <div class="container">
             <div class="row">
               <div class="col-md-12">
-                <h3 class="title-5 m-b-35">Gestion des employées</h3>
+                <h3 class="title-5 m-b-35">Historique des prestations</h3>
               </div>
             </div>
             <div class="row"></div>
@@ -250,27 +149,40 @@
             >
               <thead>
                 <tr>
-                  <th>Nom</th>
-                  <th>Prénom</th>
-                  <th>Numéro de téléphone</th>
-                  <th>Email</th>
-                  <th>Travail</th>
-                  <th>Salaire</th>
-                  <th></th>
+                  <th>Clients</th>
+                  <th>Matricule</th>
+                  <th>Service</th>
+                  <th>Date début</th>
+                  <th>Date fin</th>
+                  <th>Durée</th>
+                  <th>Place</th>
+                  <th>Montant</th>
+
                 </tr>
               </thead>
               <tbody>
-              <% for(int i=0; i<jobSalaries.size(); i++){%>
+              <% for(Prestation prestation: prestations) {
+                try {
+                  Customer customer = new Customer().selectById(prestation.getIdCustomer());
+                  Service service = new Service().selectById(prestation.getIdService());
+                  Place place = new Place().selectById(prestation.getIdPlace());
+                  VehicleType vehicleType = new VehicleType().selectById(prestation.getIdTypeVehicle());
+                %>
                 <tr>
-                  <td><%=jobSalaries.get(i).getActiveEmployee().getName()%></td>
-                  <td><%=jobSalaries.get(i).getActiveEmployee().getSurname()%></td>
-                  <td><%=jobSalaries.get(i).getActiveEmployee().getPhoneNumber()%></td>
-                  <td><%=jobSalaries.get(i).getActiveEmployee().getEmail()%></td>
-                  <td><%=jobSalaries.get(i).getActiveEmployee().getJob().getNameJob()%></td>
-                  <td><%=jobSalaries.get(i).getSalary()%></td>
-                  <td><a href="demission-action-admin?id=<%=jobSalaries.get(i).getActiveEmployee().getIdEmployee()%>" type="submit" class="btn btn-danger">Renvoyer</a></td>
+                  <td><%=customer.getName() + " " + customer.getSurname() %></td>
+                  <td><%=prestation.getMatricule()%></td>
+                  <td><%=service.getNameService()%></td>
+                  <td><%=prestation.getDateStart()%></td>
+                  <td><%=prestation.getDateEnd()%></td>
+                  <td><%=prestation.getDuration()%></td>
+                  <td><%=place.getNamePlace()%></td>
+                  <td><%=prestation.getAmount()%></td>
                 </tr>
-              <%}%>
+                <% } catch(Exception e) {
+                  
+               }
+              }
+              %>
               </tbody>
             </table>
           </div>

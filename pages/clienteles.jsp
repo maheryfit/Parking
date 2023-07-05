@@ -4,6 +4,7 @@
 <%
     String url = (String) request.getAttribute("url");
     List<Customer> customer = (List<Customer>) request.getAttribute("customerlist");
+    List<Customer> customerLoyal = (List<Customer>) request.getAttribute("customerLoyal");
 %>
 
 <!DOCTYPE html>
@@ -20,7 +21,7 @@
     <meta name="keywords" content="au theme template" />
 
     <!-- Title Page-->
-    <title></title>
+    <title>Customer</title>
 
     <!-- Fontfaces CSS-->
     <link href="<%=url%>/assets/css/font-face.css" rel="stylesheet" media="all" />
@@ -108,6 +109,14 @@
               <li>
                 <a href="customer-admin"> <i class="fas fa-user"></i>Clientèles</a>
               </li>
+              <li>
+                <a href="prestation-admin">
+                    <i class="fas fa-home"></i>Prestation</a>
+              </li>
+              <li>
+                <a href="demission-admin">
+                    <i class="fas fa-home"></i>Démission</a>
+              </li>
             </ul>
           </div>
         </nav>
@@ -135,6 +144,14 @@
               <li>
                 <a href="customer-admin"> <i class="fas fa-user"></i>Clientèles</a>
               </li>
+              <li>
+                <a href="prestation-admin">
+                    <i class="fas fa-home"></i>Prestation</a>
+              </li>
+              <li>
+                <a href="demission-admin">
+                    <i class="fas fa-home"></i>Démission</a>
+              </li>
             </ul>
           </nav>
         </div>
@@ -143,25 +160,30 @@
 
       <!-- PAGE CONTAINER-->
       <div class="page-container">
-
-        <!-- MAIN CONTENT-->
-        <div class="main-content">
-          <div class="section__content section__content--p30">
-            <div class="container-fluid">
-              <div class="row">
-                <div class="col-lg-12">
+        <section class="statistic-chart">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12">
+                <h3 class="title-5 m-b-35">Clients</h3>
+              </div>
+            </div>
+            <div class="row"></div>
+          </div>
+        </section>
+                <!-- DATA TABLE-->
+                <div class="au-card">
                   <div class="table-responsive table--no-card m-b-30">
                     <table
                       class="table table-borderless table-striped table-earning"
                     >
                       <thead>
                         <tr>
-                          <th>Nom</th>
-                          <th>Prénom</th>
-                          <th class="text-right">Email</th>
-                          <th>Date d'anniversaire</th>
-                          <th>Date de registration</th>
-                          <th class="text-right">Numéro téléphone</th>
+                          <th>Name</th>
+                          <th>First name</th>
+                          <th >Phone number</th>
+                          <th>Email</th>
+                          <th>Job</th>
+                          <th>Salaire</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -179,9 +201,48 @@
                     </table>
                   </div>
                 </div>
-              </div>
-
-              <div class="row">
+                <section class="statistic-chart">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <h3 class="title-5 m-b-35">Clients fidèles</h3>
+                      </div>
+                    </div>
+                    <div class="row"></div>
+                  </div>
+                </section>
+                        <!-- DATA TABLE-->
+                        <div class="au-card">
+                          <div class="table-responsive table--no-card m-b-30">
+                            <table
+                              class="table table-borderless table-striped table-earning"
+                            >
+                              <thead>
+                                <tr>
+                                  <th>Name</th>
+                                  <th>First name</th>
+                                  <th >Phone number</th>
+                                  <th>Email</th>
+                                  <th>Job</th>
+                                  <th>Salaire</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <% for(Customer c : customerLoyal) { %>
+                                  <tr>
+                                    <td class="text-right"><% out.print(c.getName()); %></td>
+                                    <td class="text-right"><% out.print(c.getSurname()); %></td>
+                                    <td><% out.print(c.getEmail()); %></td>
+                                    <td><% out.print(c.getBirthday()); %></td>
+                                    <td><% out.print(c.getRegistrationDate()); %></td>
+                                    <td class="text-right"><% out.print(c.getPhoneNumber()); %></td>
+                                  </tr>
+                                <% } %>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+              <div class="row" style="margin-top: 20rem;">
                 <div class="col-md-12">
                   <div class="copyright">
                     <p>

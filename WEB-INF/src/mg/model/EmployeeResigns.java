@@ -2,6 +2,7 @@ package mg.model;
 
 import java.sql.Date;
 import java.sql.SQLException;
+import java.util.List;
 
 import mg.annotation.ColumnField;
 import mg.annotation.Getter;
@@ -14,6 +15,7 @@ public class EmployeeResigns extends JDBC {
 
    @ColumnField(columnName = "idEmployee")
    private String idEmployee;
+   private Employee employee;
    @ColumnField(columnName = "resignDate", defaultValue = true)
    private Date resignDate;
 
@@ -64,6 +66,29 @@ public class EmployeeResigns extends JDBC {
     */
    public void setResignDate(String resignDate) {
       this.setResignDate(Date.valueOf(resignDate.trim()));
+   }
+
+   public List<EmployeeResigns> getEmployeeResigns() throws Exception {
+      List<EmployeeResigns> list = this.select();
+      for (int i = 0; i < list.size(); i++) {
+         Employee employee = new Employee().selectById(list.get(i).idEmployee);
+         list.get(i).employee = employee;
+      }
+      return list;
+   }
+
+   /**
+    * @param employee the employee to set
+    */
+   public void setEmployee(Employee employee) {
+      this.employee = employee;
+   }
+
+   /**
+    * @param employee the employee to get
+    */
+   public Employee getEmployee() {
+      return employee;
    }
 
 }

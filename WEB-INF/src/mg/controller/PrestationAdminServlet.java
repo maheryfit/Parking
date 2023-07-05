@@ -4,17 +4,16 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import mg.model.Customer;
-import jakarta.servlet.RequestDispatcher;
+import mg.model.Prestation;
 
-@WebServlet(urlPatterns = "/customer-admin")
-public class CustomerAdminServlet extends HttpServlet {
-
+@WebServlet(urlPatterns = "/prestation-admin")
+public class PrestationAdminServlet extends HttpServlet {
    @Override
    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
       String url = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
@@ -23,23 +22,15 @@ public class CustomerAdminServlet extends HttpServlet {
 
       try {
 
-         List<Customer> customer = new Customer().select();
-         request.setAttribute("customerlist", customer);
-         List<Customer> customerLoyal = new Customer().getCustomerLoyal();
-         request.setAttribute("customerLoyal", customerLoyal);
+         List<Prestation> prestations = new Prestation().select();
+         request.setAttribute("prestation", prestations);
       } catch (SQLException e) {
          e.printStackTrace();
       } catch (Exception e) {
          e.printStackTrace();
       }
 
-      RequestDispatcher dispatcher = request.getRequestDispatcher("pages/clienteles.jsp");
+      RequestDispatcher dispatcher = request.getRequestDispatcher("pages/prestation.jsp");
       dispatcher.forward(request, response);
    }
-
-   @Override
-   protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-   }
-
 }

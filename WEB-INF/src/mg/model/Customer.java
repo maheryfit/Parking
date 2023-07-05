@@ -279,4 +279,13 @@ public class Customer extends JDBC {
          throw new Exception("Loyalty unchanged", new Throwable(e.getMessage(), e.getCause()));
       }
    }
+
+   public LinkedList<Customer> getCustomerLoyal() throws Exception {
+      LinkedList<Customer> customerLoyal = new LinkedList<Customer>();
+      LinkedList<Object> customerLinkedList = this.select("WHERE loyalty > 0");
+      for (Object object : customerLinkedList) {
+         customerLoyal.add((Customer) object);
+      }
+      return customerLoyal;
+   }
 }
